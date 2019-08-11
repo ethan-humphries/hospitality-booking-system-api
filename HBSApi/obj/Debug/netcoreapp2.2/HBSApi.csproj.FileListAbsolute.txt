@@ -1,0 +1,11 @@
+C:\Users\ethan\source\repos\HBSApi\HBSApi\bin\Debug\netcoreapp2.2\HBSApi.deps.json
+C:\Users\ethan\source\repos\HBSApi\HBSApi\bin\Debug\netcoreapp2.2\HBSApi.runtimeconfig.json
+C:\Users\ethan\source\repos\HBSApi\HBSApi\bin\Debug\netcoreapp2.2\HBSApi.runtimeconfig.dev.json
+C:\Users\ethan\source\repos\HBSApi\HBSApi\bin\Debug\netcoreapp2.2\HBSApi.dll
+C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.csprojAssemblyReference.cache
+C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.csproj.CoreCompileInputs.cache
+C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.RazorAssemblyInfo.cache
+C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.RazorAssemblyInfo.cs
+C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.AssemblyInfoInputs.cache
+C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.AssemblyInfo.cs
+C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.RazorTargetAssemblyInfo.cache
