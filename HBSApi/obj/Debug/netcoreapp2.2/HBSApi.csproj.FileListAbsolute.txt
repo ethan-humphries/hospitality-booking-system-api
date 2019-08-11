@@ -9,3 +9,6 @@ C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.RazorAs
 C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.AssemblyInfoInputs.cache
 C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.AssemblyInfo.cs
 C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.RazorTargetAssemblyInfo.cache
+C:\Users\ethan\source\repos\HBSApi\HBSApi\bin\Debug\netcoreapp2.2\HBSApi.pdb
+C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.dll
+C:\Users\ethan\source\repos\HBSApi\HBSApi\obj\Debug\netcoreapp2.2\HBSApi.pdb

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    "signature": "583c6ba1d57d7ac2df9f37b72fb88835950074fa"
   },
   "compilationOptions": {
     "defines": [
@@ -26,13 +26,25 @@
         "dependencies": {
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
-          "Microsoft.NETCore.App": "2.2.0"
+          "Microsoft.NETCore.App": "2.2.0",
+          "Microsoft.OData.Edm": "7.6.0"
         },
         "runtime": {
           "HBSApi.dll": {}
         },
         "compile": {
           "HBSApi.dll": {}
+        }
+      },
+      "Microsoft.OData.Edm/7.6.0": {
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.OData.Edm.dll": {
+            "assemblyVersion": "7.6.0.30605",
+            "fileVersion": "7.6.0.30605"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.1/Microsoft.OData.Edm.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3236,6 +3248,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.OData.Edm/7.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D1YTLORPgu3UNI0cg4Waxj6nh4IKXxV7TpvHqQguSZXN3/cn75iDbIzqabxo7FqF2+qDo77g1EtH3utZyrRhSQ==",
+      "path": "microsoft.odata.edm/7.6.0",
+      "hashPath": "microsoft.odata.edm.7.6.0.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",
