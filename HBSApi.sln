@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29102.190
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HBSApi", "HBSApi\HBSApi.csproj", "{9E6C1516-844F-46D2-A58F-47C6D6F8227B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HBSApi", "HBSApi.csproj", "{C56B4316-CDFE-447A-8B89-4F72850E3E18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9E6C1516-844F-46D2-A58F-47C6D6F8227B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E6C1516-844F-46D2-A58F-47C6D6F8227B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E6C1516-844F-46D2-A58F-47C6D6F8227B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E6C1516-844F-46D2-A58F-47C6D6F8227B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C56B4316-CDFE-447A-8B89-4F72850E3E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C56B4316-CDFE-447A-8B89-4F72850E3E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C56B4316-CDFE-447A-8B89-4F72850E3E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C56B4316-CDFE-447A-8B89-4F72850E3E18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BB4D923A-7673-40CB-A8D5-378A2C18C483}
+		SolutionGuid = {D8FED5D8-6196-4391-9756-D10BB523CE71}
 	EndGlobalSection
 EndGlobal
