@@ -22,8 +22,6 @@ namespace HBSApi.Models
         public virtual DbSet<Feedback> Feedback { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
 
-        // Unable to generate entity type for table 'dbo.Rating'. Please see the warning messages.
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -35,14 +33,10 @@ namespace HBSApi.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+            modelBuilder.HasAnnotation("ProductVersion", "2.2.1-servicing-10028");
 
             modelBuilder.Entity<Account>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
-                    .ValueGeneratedNever();
-
                 entity.Property(e => e.AccountName).HasMaxLength(50);
 
                 entity.Property(e => e.BusinessName).HasMaxLength(50);
@@ -58,17 +52,7 @@ namespace HBSApi.Models
 
             modelBuilder.Entity<Booking>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.CustomerId).HasMaxLength(10);
-
                 entity.Property(e => e.Duration).HasMaxLength(50);
-
-                entity.Property(e => e.StaffId)
-                    .IsRequired()
-                    .HasMaxLength(10);
 
                 entity.Property(e => e.TableNumber).HasMaxLength(10);
 
@@ -98,10 +82,6 @@ namespace HBSApi.Models
 
             modelBuilder.Entity<Customer>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
-                    .ValueGeneratedNever();
-
                 entity.Property(e => e.Name).IsRequired();
 
                 entity.Property(e => e.Phone).HasMaxLength(50);
@@ -109,21 +89,9 @@ namespace HBSApi.Models
 
             modelBuilder.Entity<Feedback>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.BookingId)
-                    .IsRequired()
-                    .HasMaxLength(10);
-
-                entity.Property(e => e.CustomerId).HasMaxLength(10);
-
                 entity.Property(e => e.Date).HasColumnType("datetime");
 
                 entity.Property(e => e.Feedback1).HasColumnName("Feedback");
-
-                entity.Property(e => e.StaffId).HasMaxLength(10);
 
                 entity.HasOne(d => d.Booking)
                     .WithMany(p => p.Feedback)
@@ -144,14 +112,6 @@ namespace HBSApi.Models
 
             modelBuilder.Entity<Staff>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasMaxLength(10)
-                    .ValueGeneratedNever();
-
-                entity.Property(e => e.AccountId)
-                    .IsRequired()
-                    .HasMaxLength(10);
-
                 entity.Property(e => e.FirstName)
                     .IsRequired()
                     .HasMaxLength(50);

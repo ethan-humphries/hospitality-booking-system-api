@@ -10,7 +10,7 @@ namespace HBSApi.Models
             Staff = new HashSet<Staff>();
         }
 
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string AccountName { get; set; }
         public string BusinessName { get; set; }
         public string Email { get; set; }

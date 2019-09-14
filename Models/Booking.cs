@@ -10,9 +10,9 @@ namespace HBSApi.Models
             Feedback = new HashSet<Feedback>();
         }
 
-        public string Id { get; set; }
-        public string StaffId { get; set; }
-        public string CustomerId { get; set; }
+        public int Id { get; set; }
+        public int StaffId { get; set; }
+        public int? CustomerId { get; set; }
         public string BookingName { get; set; }
         public DateTime? BookingDate { get; set; }
         public TimeSpan? Time { get; set; }

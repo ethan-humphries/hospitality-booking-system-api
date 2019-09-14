@@ -5,10 +5,10 @@ namespace HBSApi.Models
 {
     public partial class Feedback
     {
-        public string Id { get; set; }
-        public string BookingId { get; set; }
-        public string CustomerId { get; set; }
-        public string StaffId { get; set; }
+        public int Id { get; set; }
+        public int BookingId { get; set; }
+        public int? CustomerId { get; set; }
+        public int? StaffId { get; set; }
         public string Feedback1 { get; set; }
         public DateTime? Date { get; set; }
         public int? Rating { get; set; }
