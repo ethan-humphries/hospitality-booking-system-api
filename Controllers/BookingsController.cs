@@ -30,7 +30,7 @@ namespace HBSApi.Controllers
                     return NotFound("No bookings found for the given clientId");
                 }
 
-                return Ok(result);
+                return Ok("hello");
             }
             catch(Exception e)
             {

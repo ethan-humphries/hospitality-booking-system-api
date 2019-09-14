@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HBSApi.Models;
 using HBSApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,10 +20,14 @@ namespace HBSApi.Controllers
             this.accountService = accountService;
         }
 
-        [HttpPost("/create")]
-        public IActionResult CreateAccount(/* AccountModel */)
+        [HttpPost]
+        public IActionResult CreateAccount([FromBody]Account account)
         {
             var result = "";
+            using (HBSContext context = new HBSContext()) {
+                context.Account.Add(account);
+                context.SaveChanges();
+            }
             return Ok(result);
         }
 
