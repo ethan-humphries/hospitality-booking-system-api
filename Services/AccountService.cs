@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HBSApi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,40 +8,53 @@ namespace HBSApi.Services
 {
     public interface IAccountService
     {
-        string /* Account model */ CreateAccount();
+        Account CreateAccount(Account account);
 
-        string /* Account model */ UpdateAccount();
+        Account UpdateAccount(Account account);
 
-        string /* Account model */ DeactivateAccount();
+        void DeactivateAccount(int accountId);
 
-        string /* Account model */ Authorize();
+        Account Authorize(string email, string password);
     }
 
     public class AccountService : IAccountService
     {
-        public AccountService( /*db context */)
-        {
+        private readonly HBSContext hbsContext;
 
+        public AccountService(HBSContext hbsContext)
+        {
+            this.hbsContext = hbsContext;
         }
 
-        public string /* Account model */ CreateAccount()
+        public Account CreateAccount(Account account)
         {
-            return "";
+            hbsContext.Account.Add(account);
+            hbsContext.SaveChanges();
+
+            return account;
         }
 
-        public string /* Account model */ UpdateAccount()
+        public Account UpdateAccount(Account account)
         {
-            return "";
+            var entity = hbsContext.Account.Where(x => x.Id == account.Id)
+                .SingleOrDefault();
+
+            entity = account;
+            hbsContext.SaveChanges();
+            return entity;
         }
 
-        public string /* Account model */ DeactivateAccount()
+        public void DeactivateAccount(int accountId)
         {
-            return "";
+            var entity = hbsContext.Account.Where(x => x.Id == accountId)
+                .SingleOrDefault();
+            // add status for active por inactive to db context
         }
 
-        public string /* Account model */ Authorize()
+        public Account Authorize(string email, string password)
         {
-            return "";
+            return hbsContext.Account.Where(x => x.Email.Equals(email) && x.Password.Equals(password))
+                .SingleOrDefault();
         }
     }
 }

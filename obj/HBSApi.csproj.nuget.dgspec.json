@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ethan\\source\\repos\\HBSApi\\HBSApi\\HBSApi.csproj": {}
+    "C:\\Users\\ethan\\OneDrive\\Desktop\\Uni\\Major Project\\api\\HBSApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ethan\\source\\repos\\HBSApi\\HBSApi\\HBSApi.csproj": {
+    "C:\\Users\\ethan\\OneDrive\\Desktop\\Uni\\Major Project\\api\\HBSApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ethan\\source\\repos\\HBSApi\\HBSApi\\HBSApi.csproj",
+        "projectUniqueName": "C:\\Users\\ethan\\OneDrive\\Desktop\\Uni\\Major Project\\api\\HBSApi.csproj",
         "projectName": "HBSApi",
-        "projectPath": "C:\\Users\\ethan\\source\\repos\\HBSApi\\HBSApi\\HBSApi.csproj",
+        "projectPath": "C:\\Users\\ethan\\OneDrive\\Desktop\\Uni\\Major Project\\api\\HBSApi.csproj",
         "packagesPath": "C:\\Users\\ethan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ethan\\source\\repos\\HBSApi\\HBSApi\\obj\\",
+        "outputPath": "C:\\Users\\ethan\\OneDrive\\Desktop\\Uni\\Major Project\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
