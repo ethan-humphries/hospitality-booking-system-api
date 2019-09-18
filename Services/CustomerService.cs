@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HBSApi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,40 +8,44 @@ namespace HBSApi.Services
 {
     public interface ICustomerService
     {
-        string /*Customer[] */ GetCustomers(string accountId);
+        List<Customer> GetCustomers(int accountId);
 
-        string /*Customer */ UpdateCustomer(string accountId /* Customer customer */);
+        Customer UpdateCustomer(Customer customer );
 
-        string /*Customer */ AddCustomer(string accountId /* Customer customer */);
+        Customer AddCustomer(Customer customer);
 
-        bool DeleteCustomer(string accountId, int customerId);
+        void DeleteCustomer(Customer customer);
     }
 
     public class CustomerService :  ICustomerService
     {
-        public CustomerService()
-        {
+        private readonly HBSContext hbsContext;
 
+        public CustomerService(HBSContext hbsContext)
+        {
+            this.hbsContext = hbsContext;
         }
 
-        public string /*Customer[] */ GetCustomers(string accountId)
+        public List<Customer> GetCustomers(int accountId)
         {
-            return "";
+            return hbsContext.Customer.ToList();
         }
 
-        public string /*Customer */ UpdateCustomer(string accountId /* Customer customer */)
+        public Customer UpdateCustomer(Customer customer)
         {
-            return "";
+            var entity = hbsContext.Customer.Update(customer);
+            return entity.Entity;
         }
 
-        public string /*Customer */ AddCustomer(string accountId /* Customer customer */)
+        public Customer AddCustomer(Customer customer)
         {
-            return "";
+            var entity = hbsContext.Customer.Add(customer);
+            return entity.Entity;
         }
 
-        public bool DeleteCustomer(string accountId, int customerId)
+        public void DeleteCustomer(Customer customer)
         {
-            return true;
+            hbsContext.Customer.Remove(customer);
         }
     }
 }

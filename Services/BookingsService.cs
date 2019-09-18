@@ -8,41 +8,48 @@ namespace HBSApi.Services
 {
     public interface IBookingsService
     {
-        BookingModel[] GetBookings(string clientId);
+        List<Booking> GetBookings(int accountId);
 
-        BookingModel UpdateBooking(string clientId, BookingModel booking);
+        Booking UpdateBooking(Booking booking);
 
-        BookingModel AddBooking(string clientId, BookingModel booking);
+        Booking AddBooking(Booking booking);
 
-        bool DeleteBooking(string clientId, int bookingId);
+        void DeleteBooking(Booking booking);
     }
 
     public class BookingsService : IBookingsService
     {
-        // private readonly database context
-        public BookingsService( /* inject database context */)
-        {
+        private readonly HBSContext hbsContext;
 
+        public BookingsService(HBSContext hbsContext)
+        {
+            this.hbsContext =  hbsContext;
         }
 
-        public BookingModel[] GetBookings(string clientId)
+        public List<Booking> GetBookings(int accountId)
         {
-            return new BookingModel[0];
+            return hbsContext.Booking.Where(x => x.Staff.AccountId == accountId).ToList();
         }
 
-        public BookingModel UpdateBooking(string clientId, BookingModel booking)
+        public Booking UpdateBooking(Booking booking)
         {
-            return new BookingModel();
+            var entity = hbsContext.Booking.Where(x => x.Id == booking.Id).SingleOrDefault();
+            entity = booking;
+            hbsContext.SaveChanges();
+            return entity;
         }
 
-        public BookingModel AddBooking(string clientId, BookingModel booking)
+        public Booking AddBooking(Booking booking)
         {
-            return new BookingModel();
+            hbsContext.Booking.Add(booking);
+            hbsContext.SaveChanges();
+            return booking;
         }
 
-        public bool DeleteBooking(string clientId, int bookingId)
+        public void DeleteBooking(Booking booking)
         {
-            return true;
+            hbsContext.Booking.Remove(booking);
+            hbsContext.SaveChanges();
         }
     }
 }

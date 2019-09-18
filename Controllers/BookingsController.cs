@@ -19,18 +19,17 @@ namespace HBSApi.Controllers
             _bookingsService = bookingsService;
         }
 
-        // GET api/bookings/5
         [HttpGet("{clientId}")]
-        public IActionResult GetBookingsByUserId(string clientId)
+        public IActionResult GetBookingsByUserId(int accountId)
         {
             try
             {
-                var result = _bookingsService.GetBookings(clientId);
+                var result = _bookingsService.GetBookings(accountId);
                 if (result == null) {
                     return NotFound("No bookings found for the given clientId");
                 }
 
-                return Ok("hello");
+                return Ok(result);
             }
             catch(Exception e)
             {
@@ -38,13 +37,12 @@ namespace HBSApi.Controllers
             }
         }
 
-        // POST api/bookings
         [HttpPost]
-        public IActionResult NewBooking(string clientId, [FromBody] BookingModel booking)
+        public IActionResult NewBooking([FromBody] Booking booking)
         {
             try
             {
-                var result = _bookingsService.AddBooking(clientId, booking);
+                var result = _bookingsService.AddBooking(booking);
                 if (result == null)
                 {
                     return NotFound("No bookings found for the given clientId");
@@ -58,25 +56,43 @@ namespace HBSApi.Controllers
             }
         }
 
-        // PUT api/bookings/5
-        [HttpPut("{bookingId}")]
-        public void UpdateBooking(string clientId, int bookingId, [FromBody] BookingModel booking)
+        [HttpPut]
+        public IActionResult UpdateBooking([FromBody] Booking booking)
         {
+            if (booking == null) {
+                throw new Exception();
+            }
 
+            try {
+               var result = _bookingsService.UpdateBooking(booking);
+               return  Ok(result);
+            }
+            catch(Exception e)
+            {
+                return Ok(e.Message);
+            }
         }
 
-        // DELETE api/bookings/5
         [HttpDelete("{bookingId}")]
-        public void DeleteBooking(string clientId, int bookingId)
+        public void DeleteBooking([FromBody] Booking booking)
         {
+            if (booking == null) {
+                throw new Exception("No booking in request");
+            }
 
+            try {
+                _bookingsService.DeleteBooking(booking);
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
-        //FILTER bookings
         [HttpPost("{bookingId}/{fromDate}/{toDate}")]
-        public ActionResult<BookingModel[]> FilterBookingsByDate(int userId, DateTime fromDate, DateTime toDate)
+        public ActionResult<Booking[]> FilterBookingsByDate(int accountId, DateTime fromDate, DateTime toDate)
         {
-            var bookings = new BookingModel[0];
+            var bookings = new Booking[0];
             return bookings;
         }
     }

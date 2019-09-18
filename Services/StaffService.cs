@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HBSApi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,39 +8,44 @@ namespace HBSApi.Services
 {
     public interface IStaffService
     {
-        string /*Staff[] */ GetStaff(string accountId);
+        List<Staff> GetStaff(int accountId);
 
-        string /* Staff */ UpdateStaff(string accountId /* Staff staff */);
+        Staff UpdateStaff(Staff staff);
 
-        string /* Staff */ AddStaff(string accountId /* Staff staff */);
+        Staff AddStaff(Staff staff);
 
-        bool DeleteStaff(string accountId, int staffId);
+        bool DeleteStaff(Staff staff);
     }
 
     public class StaffService : IStaffService
     {
-        public StaffService()
+        private readonly HBSContext hbsContext;
+        public StaffService(HBSContext hbsContext)
         {
+            this.hbsContext = hbsContext;
+        }
+
+        public List<Staff> GetStaff(int accountId)
+        {
+            return hbsContext.Staff.Where(x => x.AccountId == accountId).ToList();
+        }
+
+        public Staff UpdateStaff(Staff staff)
+        {
+            var entity = hbsContext.Staff.Update(staff);
+            return entity.Entity;
 
         }
 
-        public string /*Customer[] */ GetStaff(string accountId)
+        public Staff AddStaff(Staff staff)
         {
-            return "";
+            var entity = hbsContext.Staff.Add(staff);
+            return entity.Entity;
         }
 
-        public string /*Customer */ UpdateStaff(string accountId /* Staff staff */)
+        public bool DeleteStaff(Staff staff)
         {
-            return "";
-        }
-
-        public string /*Customer */ AddStaff(string accountId /* Staff staff */)
-        {
-            return "";
-        }
-
-        public bool DeleteStaff(string accountId, int staffId)
-        {
+            hbsContext.Staff.Remove(staff);
             return true;
         }
     }

@@ -21,7 +21,7 @@ namespace HBSApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateAccount([FromBody]Account account)
+        public IActionResult CreateAccount([FromBody] Account account)
         {
             var result = "";
             using (HBSContext context = new HBSContext()) {
@@ -31,24 +31,24 @@ namespace HBSApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost("/deactivate")]
-        public IActionResult DeactivateAccount(/* AccountModel */)
+        [HttpPost]
+        public IActionResult DeactivateAccount([FromBody] Account account)
         {
-            var result = "";
+            var result = accountService.DeactivateAccount(account);
             return Ok(result);
         }
 
-        [HttpPut("/update")]
-        public IActionResult UpdateAccount(/* AccountModel */)
+        [HttpPut]
+        public IActionResult UpdateAccount([FromBody] Account account)
         {
-            var result = "";
+            var result = accountService.UpdateAccount(account);
             return Ok(result);
         }
 
-        [HttpPost("/authorize")]
-        public IActionResult Authorize(/* AccountModel */)
+        [HttpPost("{email}/authorize/{password}")]
+        public IActionResult Authorize(string email, string password)
         {
-            var result = "";
+            var result = accountService.Authorize(email, password);
             return Ok(result);
         }
     }

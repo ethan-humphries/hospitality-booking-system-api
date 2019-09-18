@@ -12,7 +12,7 @@ namespace HBSApi.Services
 
         Account UpdateAccount(Account account);
 
-        void DeactivateAccount(int accountId);
+        bool DeactivateAccount(Account account);
 
         Account Authorize(string email, string password);
     }
@@ -28,26 +28,25 @@ namespace HBSApi.Services
 
         public Account CreateAccount(Account account)
         {
-            hbsContext.Account.Add(account);
+            var entity = hbsContext.Account.Add(account);
             hbsContext.SaveChanges();
 
-            return account;
+            return entity.Entity;
         }
 
         public Account UpdateAccount(Account account)
         {
+            var entity = hbsContext.Account.Update(account);
+            hbsContext.SaveChanges();
+            return entity.Entity;
+        }
+
+        public bool DeactivateAccount(Account account)
+        {
             var entity = hbsContext.Account.Where(x => x.Id == account.Id)
                 .SingleOrDefault();
 
-            entity = account;
-            hbsContext.SaveChanges();
-            return entity;
-        }
-
-        public void DeactivateAccount(int accountId)
-        {
-            var entity = hbsContext.Account.Where(x => x.Id == accountId)
-                .SingleOrDefault();
+            return true;
             // add status for active por inactive to db context
         }
 

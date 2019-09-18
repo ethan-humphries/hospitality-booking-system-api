@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HBSApi.Models;
 using HBSApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,32 +21,59 @@ namespace HBSApi.Controllers
         }
 
         [HttpGet("{accountId}")]
-        public IActionResult GetStaffByAccountId(string accountId)
+        public IActionResult GetStaffByAccountId(int accountId)
         {
-            var result = "";
-            return Ok(result);
+            try
+            {
+                var result = staffService.GetStaff(accountId);
+                return Ok(result);
+            }
+            catch(Exception e)
+            {
+                return Ok(e.Message);
+            }
         }
 
-        // POST api/bookings
-        [HttpPost("{accountId}")]
-        public IActionResult NewStaff(string accountId /* [FromBody] Staff staff */)
+        [HttpPost]
+        public IActionResult NewStaff([FromBody] Staff staff)
         {
-            var result = "";
-            return Ok(result);
+            try
+            {
+                var result = staffService.AddStaff(staff);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return Ok(e.Message);
+            }
         }
 
-        // PUT api/bookings/5
-        [HttpPut("{accountId}")]
-        public void UpdateStaff(string accountId /* [FromBody] Staff staff */)
+        [HttpPut]
+        public IActionResult UpdateStaff([FromBody] Staff staff)
         {
-
+            try
+            {
+                var result = staffService.UpdateStaff(staff);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return Ok(e.Message);
+            }
         }
 
-        // DELETE api/bookings/5
-        [HttpDelete("{accountId}/delete/{customerId}")]
-        public void DeleteStaff(string accountId, int staffId)
+        [HttpDelete]
+        public IActionResult DeleteStaff([FromBody] Staff staff)
         {
-
+            try
+            {
+                var result = staffService.DeleteStaff(staff);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return Ok(e.Message);
+            }
         }
     }
 }

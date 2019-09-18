@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HBSApi.Models;
 using HBSApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,32 +21,58 @@ namespace HBSApi.Controllers
         }
 
         [HttpGet("{accountId}")]
-        public IActionResult GetCustomersByUserId(string accountId)
+        public IActionResult GetCustomersByUserId(int accountId)
         {
-            var result = "";
-            return Ok(result);
+            try
+            {
+                var result = customerService.GetCustomers(accountId);
+                return Ok(result);
+            }
+            catch(Exception e)
+            {
+                return Ok(e.Message);
+            }
         }
 
-        // POST api/bookings
-        [HttpPost("{accountId}")]
-        public IActionResult NewCustomer(string accountId /* [FromBody] Customer customer */)
+        [HttpPost]
+        public IActionResult NewCustomer([FromBody] Customer customer)
         {
-            var result = "";
-            return Ok(result);
+            try
+            {
+                var result = customerService.AddCustomer(customer);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return Ok(e.Message);
+            }
         }
 
-        // PUT api/bookings/5
-        [HttpPut("{accountId}")]
-        public void UpdateCustomer(string accountId /* [FromBody] Customer customer */)
+        [HttpPut]
+        public IActionResult UpdateCustomer([FromBody] Customer customer)
         {
-
+            try
+            {
+                var result = customerService.UpdateCustomer(customer);
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return Ok(e.Message);
+            }
         }
 
-        // DELETE api/bookings/5
-        [HttpDelete("{accountId}/delete/{customerId}")]
-        public void DeleteCustomer(string accountId, int customerId)
+        [HttpDelete]
+        public void DeleteCustomer([FromBody] Customer customer)
         {
-
+            try
+            {
+                var result = customerService.UpdateCustomer(customer);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }
