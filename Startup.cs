@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HBSApi.Models;
 using HBSApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -32,6 +34,10 @@ namespace HBSApi
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<IStaffService, StaffService>();
+            services.AddDbContext<HBSContext>(x => 
+                x.UseSqlServer(
+                    "Server=hbs-database-public.chnk1cocv8yq.us-east-2.rds.amazonaws.com;Database=HBS;User Id=admin;Password=bookingsystem1;Connection Timeout=30")
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

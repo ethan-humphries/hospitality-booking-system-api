@@ -25,7 +25,6 @@ F:\Users\Not Oliviah\Documents\repos\hospitality-booking-system-api\bin\Debug\ne
 F:\Users\Not Oliviah\Documents\repos\hospitality-booking-system-api\obj\Debug\netcoreapp2.2\HBSApi.RazorTargetAssemblyInfo.cache
 F:\Users\Not Oliviah\Documents\repos\hospitality-booking-system-api\obj\Debug\netcoreapp2.2\HBSApi.dll
 F:\Users\Not Oliviah\Documents\repos\hospitality-booking-system-api\obj\Debug\netcoreapp2.2\HBSApi.pdb
-C:\Users\ethan\OneDrive\Desktop\Uni\Major Project\api\obj\Debug\netcoreapp2.2\HBSApi.csprojAssemblyReference.cache
 C:\Users\ethan\OneDrive\Desktop\Uni\Major Project\api\obj\Debug\netcoreapp2.2\HBSApi.csproj.CoreCompileInputs.cache
 C:\Users\ethan\OneDrive\Desktop\Uni\Major Project\api\obj\Debug\netcoreapp2.2\HBSApi.RazorAssemblyInfo.cache
 C:\Users\ethan\OneDrive\Desktop\Uni\Major Project\api\obj\Debug\netcoreapp2.2\HBSApi.RazorAssemblyInfo.cs

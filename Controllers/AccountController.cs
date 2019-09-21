@@ -23,15 +23,32 @@ namespace HBSApi.Controllers
         [HttpPost]
         public IActionResult CreateAccount([FromBody] Account account)
         {
-            var result = "";
-            using (HBSContext context = new HBSContext()) {
-                context.Account.Add(account);
-                context.SaveChanges();
+            try
+            {
+                var result =  accountService.CreateAccount(account);
+                return Ok(result);
+            } catch(Exception e)
+            {
+                return Ok(e.Message);
             }
-            return Ok(result);
         }
 
-        [HttpPost]
+        //[HttpGet]
+        //public IActionResult GetAccounts()
+        //{
+        //    var result = "";
+        //    try
+        //    {
+        //        result = accountService.GetAccounts();
+        //        return Ok(result);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return Ok(e.Message);
+        //    }
+        //}
+
+        [HttpPost("/deactivate")]
         public IActionResult DeactivateAccount([FromBody] Account account)
         {
             var result = accountService.DeactivateAccount(account);
