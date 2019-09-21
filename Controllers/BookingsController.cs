@@ -19,7 +19,7 @@ namespace HBSApi.Controllers
             _bookingsService = bookingsService;
         }
 
-        [HttpGet("{clientId}")]
+        [HttpGet("{accountId}")]
         public IActionResult GetBookingsByUserId(int accountId)
         {
             try
