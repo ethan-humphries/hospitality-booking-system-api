@@ -38,11 +38,21 @@ namespace HBSApi
                 x.UseSqlServer(
                     "Server=hbs-database-public.chnk1cocv8yq.us-east-2.rds.amazonaws.com;Database=HBS;User Id=admin;Password=bookingsystem1;Connection Timeout=30")
                 );
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options =>
+                options.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors("AllowOrigin");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

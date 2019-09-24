@@ -38,4 +38,3 @@ C:\Users\ethan\OneDrive\Desktop\Uni\Major Project\api\bin\Debug\netcoreapp2.2\HB
 C:\Users\ethan\OneDrive\Desktop\Uni\Major Project\api\bin\Debug\netcoreapp2.2\HBSApi.dll
 C:\Users\ethan\OneDrive\Desktop\Uni\Major Project\api\bin\Debug\netcoreapp2.2\HBSApi.pdb
 C:\Users\ethan\OneDrive\Desktop\Uni\Major Project\api\obj\Debug\netcoreapp2.2\HBSApi.RazorTargetAssemblyInfo.cache
-C:\Users\ethan\OneDrive\Desktop\Uni\Major Project\api\obj\Debug\netcoreapp2.2\HBSApi.csprojAssemblyReference.cache

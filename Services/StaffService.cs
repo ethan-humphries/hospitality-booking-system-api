@@ -33,6 +33,7 @@ namespace HBSApi.Services
         public Staff UpdateStaff(Staff staff)
         {
             var entity = hbsContext.Staff.Update(staff);
+            hbsContext.SaveChanges();
             return entity.Entity;
 
         }
@@ -40,12 +41,14 @@ namespace HBSApi.Services
         public Staff AddStaff(Staff staff)
         {
             var entity = hbsContext.Staff.Add(staff);
+            hbsContext.SaveChanges();
             return entity.Entity;
         }
 
         public bool DeleteStaff(Staff staff)
         {
             hbsContext.Staff.Remove(staff);
+            hbsContext.SaveChanges();
             return true;
         }
     }

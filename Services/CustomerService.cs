@@ -34,18 +34,21 @@ namespace HBSApi.Services
         public Customer UpdateCustomer(Customer customer)
         {
             var entity = hbsContext.Customer.Update(customer);
+            hbsContext.SaveChanges();
             return entity.Entity;
         }
 
         public Customer AddCustomer(Customer customer)
         {
             var entity = hbsContext.Customer.Add(customer);
+            hbsContext.SaveChanges();
             return entity.Entity;
         }
 
         public void DeleteCustomer(Customer customer)
         {
             hbsContext.Customer.Remove(customer);
+            hbsContext.SaveChanges();
         }
     }
 }
